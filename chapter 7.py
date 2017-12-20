@@ -94,3 +94,17 @@ def test_suite():
 
 test_suite()
 
+import turtle
+santa = turtle.Turtle()
+wn = turtle.Screen()
+
+
+        
+house=[(45,140),(90,70),(90,70),(90,140),(135,100),(90,100),(90,100),(90,100)]
+
+for(angle,dist)in house:
+    santa.left(angle)
+    santa.forward(dist)
+    
+   
+
