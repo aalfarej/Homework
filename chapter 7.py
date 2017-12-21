@@ -106,5 +106,13 @@ for(angle,dist)in house:
     santa.left(angle)
     santa.forward(dist)
     
+    
+path=[(160, 20), (-43, 10), (270, 8), (-43, 12)]
+
+
+for (angle,dist) in path:
+        drunk.right(angle)
+        drunk.forward(dist)
+
    
 
