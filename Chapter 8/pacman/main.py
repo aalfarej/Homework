@@ -33,7 +33,7 @@ class Player(pygame.sprite.Sprite):
         self.movey = 0  # move along Y
         self.frame = 0  # count frames
         self.images = []
-        img = pygame.image.load(os.path.join('images','pac.png')).convert()
+        img = pygame.image.load(os.path.join('images','pac1.png')).convert()
         self.images.append(img)
         self.image = self.images[0]
         self.rect  = self.image.get_rect()
@@ -52,18 +52,18 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = self.rect.x + self.movex
         self.rect.y = self.rect.y + self.movey
         # moving left
-        if self.movex < 0:
-            self.frame += 1
-            if self.frame > 3 * ani:
-                self.frame = 0
-            self.image = self.images[self.frame // ani]
-
-        # moving right
-        if self.movex > 0:
-            self.frame += 1
-            if self.frame > 3 * ani:
-                self.frame = 0
-            self.image = self.images[(self.frame // ani) + 4]
+        # if self.movex < 0:
+        #     self.frame += 1
+        #     if self.frame > 3 * ani:
+        #         self.frame = 0
+        #     self.image = self.images[self.frame // ani]
+        #
+        # # moving right
+        # if self.movex > 0:
+        #     self.frame += 1
+        #     if self.frame > 3 * ani:
+        #         self.frame = 0
+        #     self.image = self.images[(self.frame // ani) + 4]
 
 player = Player()   # spawn player
 player.rect.x = 0   # go to x
@@ -91,9 +91,11 @@ while main == True:
                 player.control(steps, 0)
             if event.key == pygame.K_UP or event.key == ord('w'):
                 print('up')
+                player.control(0,-steps)
 
             if event.key == pygame.K_DOWN or event.key == ord('x'):
                 print('down')
+                player.control(0,steps)
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == ord('a'):
@@ -104,8 +106,10 @@ while main == True:
                 player.control(-steps, 0)
             if event.key == pygame.K_UP or event.key == ord('w'):
                 print('up stop')
+                player.control(0, steps)
             if event.key == pygame.K_DOWN or event.key == ord('x'):
                 print('down stop')
+                player.control(0, -steps)
             if event.key == ord('q'):
                 pygame.quit()
                 sys.exit()
