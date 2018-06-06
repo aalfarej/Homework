@@ -1,0 +1,5 @@
+myage=0
+year= 2001
+print("My name is", __name__)
+
+#I did not know how to finish this, we did not have enough time in class
