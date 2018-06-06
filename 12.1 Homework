@@ -1,0 +1,16 @@
+import calendar
+d=calendar.TextCalendar() #a
+
+def firstday(): #b
+    d.setfirstweekday(calendar.THURSDAY)
+    d.pryear(2018)
+
+def birthday():#c
+    d.prmonth(2001,6)
+
+def local():#d
+    d = calendar.LocaleTextCalendar(6, "en")
+    d.pryear(2012)
+
+print(calendar.isleap(2012))  #boolean function    e
+
